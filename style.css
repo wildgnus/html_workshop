@@ -9,15 +9,29 @@ body {
     height: 100vh;
     flex-direction: column;
     text-align: center;
-  }
-  
-  h1, h2,h3 {
-    font-size: 3em;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 15px;
+    width: 250px; /* Width of each card */
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+h1, h2, h3 {
+    font-size: 2em; /* Adjusted font size for consistency */
     color: #2c3e50;
     margin-bottom: 20px;
-  }
-  
-  img {
+}
+
+img {
     border-radius: 50%;
     width: 150px;
     height: 150px;
@@ -26,35 +40,43 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     animation: zoomIn 2s ease-in-out;
-  }
-  
-  ul {
+}
+
+ul {
     list-style: none;
     padding: 0;
-  }
-  
-  li {
+}
+
+li {
     font-size: 1.2em;
     color: #34495e;
     margin: 10px 0;
     position: relative;
     padding-left: 20px;
-  }
-  
-  li:before {
+}
+
+li:before {
     content: "✔";
     position: absolute;
     left: 0;
     color: #3498db;
-  }
-  @keyframes zoomIn {
+}
+
+@keyframes zoomIn {
     from {
-      transform: scale(0.5);
-      opacity: 0;
+        transform: scale(0.5);
+        opacity: 0;
     }
     to {
-      transform: scale(1);
-      opacity: 1;
+        transform: scale(1);
+        opacity: 1;
     }
-  }
-  
+}
+
+/* Media query for wider screens */
+@media (min-width: 600px) {
+    body {
+        flex-direction: row; /* Align cards in a row */
+        flex-wrap: wrap; /* Allow wrapping of cards */
+    }
+}
