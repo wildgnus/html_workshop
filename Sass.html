@@ -1,4 +1,3 @@
-
 <!doctype html>
 
 <html lang="en">
@@ -6,14 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>A Basic HTML5 Template</title>
-  <meta name="description" content="A simple HTML5 Template for new projects.">
-  <meta name="author" content="SitePoint">
+  <title>What is Sass? Your guide to this top CSS preprocessor</title>
+  <meta name="description" content="A simple HTML5 Template with information about Sass, a popular CSS preprocessor.">
+  <meta name="author" content="TSI University">
 
-  <meta property="og:title" content="A Basic HTML5 Template">
+  <meta property="og:title" content="What is Sass? Your guide to this top CSS preprocessor">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
-  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+  <meta property="og:url" content="https://www.creativebloq.com/web-design/what-is-sass-111517618">
+  <meta property="og:description" content="A detailed guide on how to use Sass effectively.">
   <meta property="og:image" content="image.png">
 
   <link rel="icon" href="/favicon.ico">
@@ -26,38 +25,138 @@
 
 <body>
 
-        <header>
-          <h1>What is Sass? Your guide to this top CSS preprocessor</h1>
-          <p>Discover what Sass is and learn how to start using it.</p>
-        </header>
-      
-        <section>
-          <h2>What is Sass?</h2>
-          <p>Sass is a CSS preprocessor that adds features like variables, nested rules, and mixins to regular CSS. It makes the coding process simpler and more efficient.</p>
-        </section>
-      
-        <section>
-          <h2>How to use Sass</h2>
-          <p>Here are some basic tips for using Sass, including its syntax options:</p>
-          <ul>
-            <li>SCSS: Uses the .scss file extension and is fully compliant with CSS syntax.</li>
-            <li>Indented: Uses .sass file extension and relies on indentation rather than brackets.</li>
-          </ul>
-          <p>Example of Sass variable usage:</p>
-          <pre><code>
-            $primary-color: #333;
-            body {
-              color: $primary-color;
-            }
-          </code></pre>
-        </section>
-      
-        <footer>
-          <p>Article source: <a href="https://www.creativebloq.com/web-design/what-is-sass-111517618">CreativeBloq</a></p>
-          <p>Disclaimer: this is TSI University task for HTML CSS and SASS workshop not for publishing anywhere on the media.</p>
-        </footer>
-      
+  <header>
+    <h1>What is Sass? Your guide to this top CSS preprocessor</h1>
+    <p>Discover what Sass is and learn how to start using it.</p>
+  </header>
+
+  <section>
+    <h2>What is Sass?</h2>
+    <p>Sass is a CSS preprocessor that adds features such as variables, nested rules, and mixins to standard CSS. These features help make the coding process simpler and more efficient.</p>
+    <p>Sass stands for <strong>Syntactically Awesome Stylesheets</strong> and is compatible with all versions of CSS. One of the key advantages is that it enables faster style sheet development.</p>
+    <p><strong>Note:</strong> To use Sass, Ruby must be installed on your system.</p>
+  </section>
+
+  <section>
+    <h2>How to use Sass</h2>
+    <p>Sass offers two syntax options:</p>
+    <ul>
+      <li><strong>SCSS (Sassy CSS)</strong>: Fully compliant with CSS syntax, and uses the <code>.scss</code> file extension.</li>
+      <li><strong>Indented Syntax</strong>: Uses the <code>.sass</code> file extension and requires indentation instead of brackets. This format is faster to write but not fully CSS-compliant.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Variables in Sass</h2>
+    <p>Just like in other programming languages, Sass allows you to use variables. For example, you can define a color at the beginning of the file and use it throughout your style sheet.</p>
+    <pre><code>
+      $primary-color: #333;
+      body {
+        color: $primary-color;
+      }
+    </code></pre>
+    <p>This produces the following CSS:</p>
+    <pre><code>
+      body {
+        color: #333;
+      }
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Nesting in Sass</h2>
+    <p>Nesting allows you to structure your CSS in a way that reflects the HTML hierarchy. Here's an example:</p>
+    <pre><code>
+      nav {
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+        li { display: inline-block; }
+        a {
+          display: block;
+          padding: 6px 12px;
+          text-decoration: none;
+        }
+      }
+    </code></pre>
+    <p>This compiles into the following CSS:</p>
+    <pre><code>
+      nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      nav li {
+        display: inline-block;
+      }
+      nav a {
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+      }
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Partials and Import in Sass</h2>
+    <p>Sass allows the use of partials to modularize your CSS files. You can then use the <code>@import</code> directive to include these partials into a main file.</p>
+    <pre><code>
+// _reset.scss
+html, body, ul, ol {
+   margin: 0;
+   padding: 0;
+}
+
+// basefile.scss
+@import 'reset';
+body {
+  font: 100% Helvetica, sans-serif;
+  background-color: #efefef;
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Mixins in Sass</h2>
+    <p>Mixins allow for reusable chunks of CSS that simplify complex code. Here’s an example for <code>border-radius</code>:</p>
+    <pre><code>
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+.box { @include border-radius(10px); }
+    </code></pre>
+    <p>This produces the following CSS:</p>
+    <pre><code>
+.box {
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+          border-radius: 10px;
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Extend/Inheritance in Sass</h2>
+    <p>The <code>@extend</code> directive is a powerful feature that allows one selector to inherit styles from another. This helps you keep your code DRY (Don't Repeat Yourself).</p>
+  </section>
+
+  <section>
+    <h2>Operators in Sass</h2>
+    <p>Sass allows mathematical calculations directly in your style sheets. This includes addition, subtraction, multiplication, and division, which can be combined for more complex operations.</p>
+  </section>
+
+  <footer>
+    <p>Article source: <a href="https://www.creativebloq.com/web-design/what-is-sass-111517618">CreativeBloq</a></p>
+    <p>Disclaimer: This is TSI University task for HTML CSS and SASS workshop, not for publishing anywhere on the media.</p>
+  </footer>
+
   <script src="js/scripts.js"></script>
 </body>
 </html>
-
